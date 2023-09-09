@@ -10,18 +10,19 @@ export default function HeaderLayout({
 }) {
   return (
     <Box
-      width="100dvw"
       minHeight="100dvh"
       display="flex"
       alignItems="center"
       flexDirection="column"
       gap="20px"
       sx={{
-        overflowX: "hidden"
+        width: "100dvw",
+        maxWidth: "100%",
+        // overflowX: "hidden"
       }}
     >
       <StaticBackground variant="dark" />
-      <Header alwaysOn />
+      <Header alwaysOn layout="other" />
       <Box
         sx={{
           width: "100%",

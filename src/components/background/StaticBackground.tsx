@@ -13,9 +13,9 @@ export default function StaticBackground({ variant }: { variant: "light" | "dark
         bottom: 0,
         right: 0,
         zIndex: -1,
-        width: "105dvw",
-        height: "105dvh",
-        filter: "blur(5px)",
+        width: "105lvw",
+        height: "110lvh",
+        // filter: "blur(5px)",
         background: variant === "light"
           ? `linear-gradient(0deg, rgba(244, 244, 244, 0.6), rgba(244, 244, 244, 0.6)), url(${bgStatic.src})`
           : `linear-gradient(0deg, rgba(56, 56, 58, 0.80) 0%, rgba(56, 56, 58, 0.80) 100%), url(${bgStaticDark.src}), lightgray 50% / cover no-repeat`,

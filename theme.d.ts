@@ -4,7 +4,6 @@ import {
   ThemeOptions as MUIThemeOptions
 } from "@mui/material/styles";
 import React from "react";
-import {TypographyOptions} from "@mui/material/styles/createTypography";
 
 interface Colors {
   LIGHT: React.CSSProperties["color"],
@@ -42,21 +41,56 @@ declare module "@mui/material/styles" {
   }
 
   interface TypographyVariants {
-    headerUpLink: TypographyOptions;
-    headerDownLink: TypographyOptions;
-    p1: TypographyOptions;
-    p2: TypographyOptions;
-    p3: TypographyOptions;
+    headerUpLink: React.CSSProperties;
+    headerDownLink: React.CSSProperties;
+    a: React.CSSProperties;
+    h1: React.CSSProperties;
+    h2: React.CSSProperties;
+    h3: React.CSSProperties;
+    h4: React.CSSProperties;
+    h5: React.CSSProperties;
+    h6: React.CSSProperties;
+    p1: React.CSSProperties;
+    p2: React.CSSProperties;
+    p3: React.CSSProperties;
+    p4: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
-    headerUpLink: TypographyOptions;
-    headerDownLink: TypographyOptions;
-    p1: TypographyOptions;
-    p2: TypographyOptions;
-    p3: TypographyOptions;
+    headerUpLink: React.CSSProperties;
+    headerDownLink: React.CSSProperties;
+    a: React.CSSProperties;
+    h1: React.CSSProperties;
+    h2: React.CSSProperties;
+    h3: React.CSSProperties;
+    h4: React.CSSProperties;
+    h5: React.CSSProperties;
+    h6: React.CSSProperties;
+    p1: React.CSSProperties;
+    p2: React.CSSProperties;
+    p3: React.CSSProperties;
+    p4: React.CSSProperties;
   }
 
   export function createTheme(options?: ThemeOptions): Theme;
   export function useTheme(options?: ThemeOptions): Theme;
+}
+
+// Update the Typography's variant prop options
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    headerUpLink: true;
+    headerDownLink: true;
+    a: true;
+    h1: true;
+    h2: true;
+    h3: true;
+    h4: true;
+    h5: true;
+    h6: true;
+    p1: true;
+    p2: true;
+    p3: true;
+    p4: true;
+  }
 }

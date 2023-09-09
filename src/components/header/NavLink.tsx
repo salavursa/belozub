@@ -21,11 +21,11 @@ export default function NavLink({ href, text, variant = "upper" }: { href: strin
         }}
       >
         {variant === "upper" ? (
-          <Typography sx={{ color: theme => variant === "upper" ? theme.colors.DARK : theme.colors.LIGHT }} noWrap variant="headerUpLink">
+          <Typography sx={{ color: theme => theme.colors.DARK }} noWrap variant="headerUpLink">
             {text}
           </Typography>
         ) : (
-          <Typography sx={{ color: theme => variant === "upper" ? theme.colors.DARK : theme.colors.LIGHT }} noWrap variant="headerDownLink">
+          <Typography sx={{ color: theme => theme.colors.LIGHT }} noWrap variant="headerDownLink">
             {text}
           </Typography>
         )}

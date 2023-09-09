@@ -1,8 +1,11 @@
 import React from "react";
-import {Box, SxProps} from "@mui/material";
-import {Theme} from "@mui/material/styles";
+import {Box, BoxProps} from "@mui/material";
 
-export default function Section({sx = {}, children, id}: { sx?: SxProps<Theme>, children: React.ReactElement | React.ReactElement[], id: string}): React.ReactElement {
+type Props = {
+  id: string
+} & BoxProps
+
+export default function Section({sx = {}, children, id}: Props): React.ReactElement {
   return (
     <Box
       component="section"

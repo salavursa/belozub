@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import Section from "@/components/section/Section";
 import Greeting from "@/components/section/about/Greeting";
 import {Box} from "@mui/material";
@@ -8,24 +8,26 @@ import SectionHeader from "@/components/section/SectionHeader";
 import SectionContainer from "@/components/section/SectionContainer";
 import Article from "@/components/section/blog/Article";
 import OutlineButton from "@/components/input/OutlineButton";
+import Review from "@/components/section/reviews/Review";
+import SliderContainer, {SliderInterface} from "@/components/slider/SliderContainer";
 
 export default function ArticlesSection(): React.ReactElement {
+  const sliderRef = useRef<SliderInterface>({
+    slideRight: () => {},
+    slideLeft: () => {}
+  });
+
   return (
     <Section id="articles">
       <SectionContainer>
         <SectionHeader text="Последние статьи" sx={{ alignSelf: "center" }} />
-        <Box
+
+        <SliderContainer
           sx={{
-            alignItems: "center",
-            display: "flex",
-            gap: "0px",
-            width: "100%",
             height: "500px",
-            overflowX: "scroll",
-            scrollSnapType: "x mandatory",
-            scrollPaddingLeft: "15px",
-            borderRadius: theme => theme.constants.borders.radiusXS
+            scrollPaddingLeft: "15px"
           }}
+          ref={sliderRef}
         >
           <Article />
           <Article />
@@ -33,23 +35,36 @@ export default function ArticlesSection(): React.ReactElement {
           <Article />
           <Article />
           <Article />
+        </SliderContainer>
+
+        <Box
+          display="flex"
+          mt="20px"
+          alignItems="center"
+          justifyContent="center"
+          gap={{ xs: "25px", sm: "30px" }}
+          width="100%"
+        >
+          <OutlineButton onClick={() => sliderRef.current.slideLeft()} radius="xs" styleVariant="secondary" sx={{ width: "50px", height: "50px", p: 0 }}>
+            {"<"}
+          </OutlineButton>
+          <OutlineButton
+            sx={{
+              minWidth: {
+                md: "calc((100% - 30px * 2) / 2)",
+                lg: "calc((100% - 30px * 2) / 2)",
+                xl: "calc((100% - 30px * 3) / 3)",
+              }
+            }}
+            outlineDirection="t"
+            styleVariant="secondary"
+          >
+            Все статьи
+          </OutlineButton>
+          <OutlineButton onClick={() => sliderRef.current.slideRight()} radius="xs" outlineDirection="tr" styleVariant="secondary" sx={{ width: "50px", height: "50px", p: 0 }}>
+            {">"}
+          </OutlineButton>
         </Box>
-        <OutlineButton
-          styleVariant="secondary"
-          sx={{
-            alignSelf: "center",
-            mt: "20px",
-            width: {
-              xs: "calc((100% - 30px * 1) / 1)",
-              sm: "calc((100% - 30px * 1) / 1)",
-              md: "calc((100% - 30px * 2) / 2)",
-              lg: "calc((100% - 30px * 2) / 2)",
-              xl: "calc((100% - 30px * 3) / 3)",
-            }
-          }}
-        >
-          Все статьи
-        </OutlineButton>
       </SectionContainer>
     </Section>
   );

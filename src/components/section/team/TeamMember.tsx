@@ -1,8 +1,7 @@
 import React from "react";
-import {Box, Grid, Typography} from "@mui/material";
+import {Box, Typography, useMediaQuery, useTheme} from "@mui/material";
 import Image from "next/image";
-import ddhIcon from "../../../../public/icon/svg-ddh-dark-logo.svg";
-import arrowRight from "../../../../public/icon/arrow-right.svg";
+import ddhIcon from "../../../../public/icon/brandings/svg-ddh-dark-logo.svg";
 import Link from "next/link";
 import ViewMoreLink from "@/components/elements/ViewMoreLink";
 
@@ -19,12 +18,16 @@ export default function TeamMember({
   title,
   slogan
 }: Props): React.ReactElement {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+
   return (
     <Link href={"/team/"} style={{ textDecoration: "none" }}>
       <Box
         sx={{
           height: "260px",
-          width: "500px",
+          width: isMobile ? "auto" : "500px",
+          flex: isMobile ? "1 0" : "0 0",
           display: "flex",
 
           "&:hover #imageBox": {
@@ -41,8 +44,15 @@ export default function TeamMember({
       >
         <Box
           sx={{
-            padding: "20px 30px",
-            width: "200px",
+            padding: {
+              xs: "0 15px 0 0",
+              sm: "0 30px 0 0",
+              md: "20px 30px"
+            },
+            minWidth: {
+              sm: "200px"
+            },
+            width: isMobile ? "140px" : "200px",
             height: "100%",
           }}
         >
@@ -68,7 +78,7 @@ export default function TeamMember({
               sizes="100vw"
               style={{
                 width: "auto",
-                height: "220px"
+                height: "100%"
               }}
             />
           </Box>

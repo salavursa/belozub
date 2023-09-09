@@ -1,17 +1,67 @@
-import React from "react";
+import React, {useRef} from "react";
 import Section from "@/components/section/Section";
-import Greeting from "@/components/section/about/Greeting";
 import {Box} from "@mui/material";
-import InteractiveView from "@/components/section/about/InteractiveView";
-import Documents from "@/components/section/about/Documents";
 import SectionHeader from "@/components/section/SectionHeader";
 import SectionContainer from "@/components/section/SectionContainer";
+import Review from "@/components/section/reviews/Review";
+import OutlineButton from "@/components/input/OutlineButton";
+import SliderContainer, {SliderInterface} from "@/components/slider/SliderContainer";
 
 export default function ReviewsSection(): React.ReactElement {
+  const sliderRef = useRef<SliderInterface>({} as SliderInterface);
+
   return (
-    <Section id="reviews">
+    <Section
+      id="reviews"
+      sx={{
+        mt: "100px",
+        backgroundColor: "rgba(56, 56, 58, 0.90)",
+        paddingLeft: 0,
+        paddingRight: 0
+      }}
+    >
       <SectionContainer>
-        <SectionHeader text="Отзовы" />
+        <SectionHeader
+          text="Клиенты о нас"
+          sx={{
+            alignSelf: "end",
+            color: theme => theme.colors.PINK ,
+            pr: {
+              xs: "25px",
+              sm: "50px",
+              md: "100px",
+              lg: "170px",
+            },
+          }}
+        />
+
+        <SliderContainer sx={{ height: "170px" }} ref={sliderRef}>
+          <Review />
+          <Review />
+          <Review />
+          <Review />
+          <Review />
+          <Review />
+          <Review />
+          <Review />
+          <Review
+            sx={{
+              mr: {
+                xs: "25px",
+                sm: "30px"
+              }
+            }}
+          />
+        </SliderContainer>
+
+        <Box display="flex" mt="25px" alignItems="center" justifyContent="center" gap={{ xs: "25px", sm: "30px" }} >
+          <OutlineButton onClick={() => sliderRef.current.slideLeft()} radius="xs" styleVariant="secondary" sx={{ width: "45px", height: "45px", p: 0 }}>
+            {"<"}
+          </OutlineButton>
+          <OutlineButton onClick={() => sliderRef.current.slideRight()} radius="xs" outlineDirection="tr" styleVariant="secondary" sx={{ width: "45px", height: "45px", p: 0 }}>
+            {">"}
+          </OutlineButton>
+        </Box>
       </SectionContainer>
     </Section>
   );

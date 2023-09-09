@@ -1,7 +1,7 @@
 import Document, {Html, Head, Main, NextScript, DocumentInitialProps} from 'next/document'
 import * as React  from "react";
 import createEmotionServer from "@emotion/server/create-instance";
-import theme, { ra } from "../src/theme";
+import theme  from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
 
 export default class MyDocument extends Document{
@@ -25,7 +25,7 @@ export default class MyDocument extends Document{
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
-MyDocument.getInitialProps = async (ctx): Promise<DocumentInitialProps> => {
+MyDocument.getInitialProps = async (ctx): Promise<{ head?: Array<JSX.Element | null>; html: string; styles?: React.ReactElement[] | React.ReactFragment | JSX.Element; emotionStyleTags: JSX.Element[] }> => {
   // Resolution order
   //
   // On the server:

@@ -77,8 +77,8 @@ export default function Greeting(): React.ReactElement {
             top: "53%",
             left: "7%",
             position: "absolute",
-            width: "35%",
-            height: "max-content",
+            width: "29vw",
+            height: "29vw",
             maxWidth: "150px",
             maxHeight: "150px",
           }}

@@ -44,11 +44,15 @@ const theme = createTheme({
   constants: CONSTANTS,
   typography: {
     fontFamily: `${raleway.style.fontFamily}`,
-    fontStyle: "normal",
-    lineHeight: "normal",
-    fontVariant: "tabular-mums",
 
-    color: COLORS.DARK,
+    allVariants: {
+      fontStyle: "normal",
+      lineHeight: "normal",
+      fontVariant: "tabular-mums",
+      fontVariantNumeric: "lining-nums proportional-nums",
+
+      color: COLORS.DARK,
+    },
 
     headerUpLink: {
       fontFamily: `${raleway.style.fontFamily}`,
@@ -184,23 +188,63 @@ const theme = createTheme({
       },
     },
 
+    p4: {
+      fontFamily: `${raleway.style.fontFamily}`,
+      fontVariant: "tabular-mums",
+      fontSize: "10px",
+      fontStyle: "normal",
+      fontWeight: 400,
+      lineHeight: "15px",
+      letterSpacing: "0.05em",
+      color: COLORS.DARK,
+      [intermediateTheme.breakpoints.down("sm")]: {
+        fontSize: "11px",
+      },
+    },
+
     a: {
       textUnderlineOffset: "5px",
       textDecoration: "underline",
       transition: CONSTANTS.transitions.default,
       color: COLORS.LIGHT,
       [intermediateTheme.breakpoints.down("sm")]: {
-        textUnderlineOffset: "3px",
+        textUnderlineOffset: "2px",
       },
-      "&:hover": {
-        color: COLORS.PINK,
-      }
+      // "&:hover": {
+      //   color: COLORS.PINK,
+      // }
     }
   },
   components: {
+    // MuiInputBase: {
+    //   styleOverrides: {
+    //     input: {
+    //       // color: COLORS.LIGHT,
+    //       transition: CONSTANTS.transitions.default,
+    //       height: "17px",
+    //       padding: "16.5px 14px"
+    //     },
+    //   },
+    // },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          transition: CONSTANTS.transitions.default,
+          height: "17px",
+          padding: "16.5px 14px",
+          "& textarea": {
+            p: "0 !important"
+          }
+        },
+        inputMultiline: {
+          padding: 0,
+        },
+      }
+    },
     MuiButtonBase: {
       styleOverrides: {
         root: {
+          minWidth: "32px",
           minHeight: "0px"
         }
       }
@@ -236,7 +280,7 @@ const theme = createTheme({
           }
         }
       }
-    },
+    }
   }
 });
 

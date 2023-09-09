@@ -12,6 +12,7 @@ import ReviewsSection from "@/components/section/reviews/ReviewsSection";
 import ContactsSection from "@/components/section/contacts/ContactsSection";
 import ServicesSection from "@/components/section/services/ServicesSection";
 import ArticlesSection from "@/components/section/blog/ArticlesSection";
+import WriteReviewSection from "@/components/section/reviews/WriteReviewSection";
 
 const Page: NextPageWithLayout = () => {
   return (
@@ -28,9 +29,10 @@ const Page: NextPageWithLayout = () => {
 
       <ArticlesSection />
 
-      <GalleySection />
-
       <ReviewsSection />
+      <WriteReviewSection />
+
+      <GalleySection />
 
       <ContactsSection />
     </>

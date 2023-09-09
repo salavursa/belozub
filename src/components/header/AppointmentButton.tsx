@@ -7,7 +7,7 @@ export default function AppointmentButton(): React.ReactElement {
     <Link href="/#contacts" style={{ textDecoration: "none" }} scroll={false}>
       <Button
         sx={{
-          padding: "10px 30px 10px 35px",
+          padding: "10px 30px 10px 45px",
           backgroundColor: theme => theme.colors.GRAY,
           transition: theme => theme.constants.transitions.default,
           border: "none",

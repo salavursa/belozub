@@ -36,7 +36,7 @@ export default function ServicesSection(): React.ReactElement {
                 xl: "450px",
                 lg: "370px",
                 sm: "350px",
-                xs: "250px"
+                xs: "50vw"
               },
               right: {
                 sm: "-5%",

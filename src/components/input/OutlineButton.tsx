@@ -2,10 +2,12 @@ import React from "react";
 import {Box, Button, ButtonProps} from "@mui/material";
 
 type Props = {
-  styleVariant?: "primary" | "secondary"
+  styleVariant?: "primary" | "secondary",
+  radius?: "xs" | "md",
+  outlineDirection?: "tl" | "tr" | "t"
 } & ButtonProps
 
-export default function OutlineButton({children , styleVariant = "primary", sx, ...otherProps }: Props): React.ReactElement {
+export default function OutlineButton({ children, radius = "md", outlineDirection = "tl", styleVariant = "primary", sx, ...otherProps }: Props): React.ReactElement {
   return (
     <Button
       {...otherProps}
@@ -17,26 +19,37 @@ export default function OutlineButton({children , styleVariant = "primary", sx, 
             left: 0,
           },
           "&::after": {
+            width: "100%",
             top: 0,
             left: 0,
-            borderColor: theme => theme.colors.DARK,
+            borderColor: theme => theme.colors.PINK,
           },
-          color: theme => theme.colors.LIGHT,
+          color: theme => theme.colors.PINK,
         },
         ...styleVariant === "secondary" ? {
           border: "none",
           position: "relative",
-          borderRadius: theme => theme.constants.borders.radius,
+          borderRadius: theme => radius === "xs" ? theme.constants.borders.radiusXS : theme.constants.borders.radius,
           backgroundColor: "transparent",
           zIndex: 0,
           "&::after": {
             content: "''",
-            width: "100%",
             height: "100%",
             position: "absolute",
+            ...(outlineDirection === "tl" ? {
+              width: "100%",
+              left: "-4px"
+            } : {}),
+            ...(outlineDirection === "tr" ? {
+              width: "100%",
+              left: "4px"
+            } : {}),
+            ...(outlineDirection === "t" ? {
+              width: "calc(100% - 16px)",
+              left: "8px"
+            } : {}),
             top: "-2px",
-            left: "-4px",
-            borderRadius: theme => theme.constants.borders.radius,
+            borderRadius: theme => radius === "xs" ? theme.constants.borders.radiusXS : theme.constants.borders.radius,
             transition: theme => theme.constants.transitions.default,
             border: "1px solid",
             borderColor: theme => theme.colors.LIGHT,
@@ -49,8 +62,16 @@ export default function OutlineButton({children , styleVariant = "primary", sx, 
             height: "100%",
             position: "absolute",
             top: "2px",
-            left: "4px",
-            borderRadius: theme => theme.constants.borders.radius,
+            ...(outlineDirection === "tl" ? {
+              left: "4px"
+            } : {}),
+            ...(outlineDirection === "tr" ? {
+              left: "-4px"
+            } : {}),
+            ...(outlineDirection === "t" ? {
+              left: "0px"
+            } : {}),
+            borderRadius: theme => radius === "xs" ? theme.constants.borders.radiusXS : theme.constants.borders.radius,
             transition: theme => theme.constants.transitions.default,
             backgroundColor: theme => theme.colors.DARK,
             zIndex: -1,

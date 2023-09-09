@@ -16,11 +16,13 @@ export default function MainLayout({
       alignItems="center"
       flexDirection="column"
       sx={{
+        width: "100dvw",
+        maxWidth: "100%",
         overflowX: "hidden"
       }}
     >
       <StaticBackground variant="light" />
-      <Header />
+      <Header layout="index" />
       {children}
     </Box>
   )

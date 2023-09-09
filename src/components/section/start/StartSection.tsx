@@ -2,8 +2,8 @@ import React, {useCallback, useState, useEffect, useMemo} from "react";
 import Section from "@/components/section/Section";
 
 import imgStart from "../../../../public/image/bg-start.png";
-import svgTitle from "../../../../public/image/svg-title.svg";
-import svgDdh from "../../../../public/image/svg-ddh-pink-logo.svg";
+import svgTitle from "../../../../public/icon/brandings/svg-title.svg";
+import svgDdh from "../../../../public/icon/brandings/svg-ddh-pink-logo.svg";
 import arrowDownSvg from "../../../../public/icon/arrow-down.svg";
 import Image from "next/image";
 import {Box, Button, Typography, useMediaQuery, useTheme} from "@mui/material";
@@ -40,8 +40,6 @@ export default function StartSection(): React.ReactElement {
   const [scrollTop, setScrollTop] = useState(0);
 
   const handleScroll = useCallback(() => {
-    console.log("scroll");
-
     if (window.scrollY < window.innerHeight * .8) {
       setScrollTop(window.scrollY);
     } else {
@@ -52,10 +50,10 @@ export default function StartSection(): React.ReactElement {
   useEffect(() => {
     setScrollTop(window.scrollY);
 
-    document.addEventListener("scroll", handleScroll);
+    // document.addEventListener("scroll", handleScroll);
 
     return () => {
-      document.removeEventListener("scroll", handleScroll);
+      // document.removeEventListener("scroll", handleScroll);
     }
   }, [])
 
@@ -63,8 +61,8 @@ export default function StartSection(): React.ReactElement {
     <Section
       id="main"
       sx={{
-        height: "100dvh",
-        width: "100dvw",
+        height: "100svh",
+        width: "100svw",
         padding: {
           xs: 0,
           sm: 0,
@@ -103,7 +101,7 @@ export default function StartSection(): React.ReactElement {
           mt: {
             xs: "23%",
             sm: "15%",
-            md: "10dvh",
+            md: "10svh",
           },
           gap: {
             xs: "40px",
@@ -113,9 +111,9 @@ export default function StartSection(): React.ReactElement {
             xs: "100%"
           },
           maxWidth: {
-            xs: "100dvw",
-            md: "90dvw",
-            lg: "70dvw"
+            xs: "100svw",
+            md: "90svw",
+            lg: "70svw"
           },
           padding: {
             xs: "0 20px",
@@ -159,6 +157,7 @@ export default function StartSection(): React.ReactElement {
         }}
       >
         <Image
+          alt="dental design health"
           src={svgDdh}
           style={{
             height: "auto",
@@ -166,6 +165,7 @@ export default function StartSection(): React.ReactElement {
           }}
         />
         <Image
+          alt="arrow"
           src={arrowDownSvg}
           style={{
             height: "auto",
