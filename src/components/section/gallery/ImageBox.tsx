@@ -18,7 +18,7 @@ export default function ImageBox({ compressed, gridArea }: { gridArea: React.CSS
     else {
       setStretchAxe("width");
     }
-  }, [ boxRef ])
+  }, [boxRef, compressed.height, compressed.width])
 
   return (
     <Box

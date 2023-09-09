@@ -70,7 +70,7 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
         document.removeEventListener("scroll", handleHeaderScroll);
       }
     }
-  }, [])
+  }, [alwaysOn, handleHeaderScroll])
 
   return (
     <Box

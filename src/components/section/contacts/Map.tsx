@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import useScript from "@/util/useScript";
-import {Box, BoxProps, SxProps} from "@mui/material";
-import {Theme} from "@mui/material/styles";
+import {Box, BoxProps} from "@mui/material";
 
 function init() {
+  // @ts-ignore
   const { ymaps } = window;
 
   var myMap = new ymaps.Map("map", {
@@ -15,7 +15,7 @@ function init() {
 
   // Создадим экземпляр элемента управления «поиск по карте»
   // с установленной опцией провайдера данных для поиска по организациям.
-  var searchControl = new ymaps.control.SearchControl({
+  var searchControl: any = new ymaps.control.SearchControl({
     options: {
       provider: 'yandex#search'
     }
@@ -25,7 +25,7 @@ function init() {
 
   searchControl.search('Belozub Clinic');
 
-  searchControl.events.add('load', function (e) {
+  searchControl.events.add('load', function () {
     setTimeout(() => {
       searchControl.hideResult();
     }, 1000);
@@ -44,12 +44,13 @@ type Props = {
 } & BoxProps
 
 export default function Map({ sx = {}, ...other }: Props ): React.ReactElement {
-  const [loaded, error] = useScript("https://api-maps.yandex.ru/2.1/?apikey=bfa2e393-deab-4d28-b6fb-2b9566329720&lang=ru_RU");
+  const [loaded] = useScript("https://api-maps.yandex.ru/2.1/?apikey=bfa2e393-deab-4d28-b6fb-2b9566329720&lang=ru_RU");
   const [mapLoaded, setMapLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     if (!mapLoaded && loaded) {
       const timeout = setTimeout(() => {
+        // @ts-ignore
         const { ymaps } = window;
 
         if (ymaps) {

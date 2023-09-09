@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-let cachedScripts = [];
+const cachedScripts: string[] = [];
 
-export default function useScript(src): [loaded: boolean, error: string | undefined] {
+export default function useScript(src: string): [loaded: boolean, error: string | undefined] {
   // Keeping track of script loaded and error state
   const [state, setState] = useState<{
     loaded: boolean,

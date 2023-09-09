@@ -10,8 +10,9 @@ export default class MyDocument extends Document{
       <Html lang="en" className='scroll-smooth' style={{ scrollBehavior:'smooth' }}>
         <Head>
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/icon/brandings/svg-bel-header.svg" />
           <meta name="emotion-insertion-point" content="" />
+          <title>Belozub CLinic</title>
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>

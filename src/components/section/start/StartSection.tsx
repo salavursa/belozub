@@ -37,6 +37,7 @@ export default function StartSection(): React.ReactElement {
 
   const arrowDelta: number = useMemo(() => isMobile ? 1.04 : 1.24, [ isMobile ]);
 
+  const [animationEnabled, setAnimationEnabled] = React.useState<boolean>(false);
   const [scrollTop, setScrollTop] = useState(0);
 
   const handleScroll = useCallback(() => {
@@ -50,12 +51,16 @@ export default function StartSection(): React.ReactElement {
   useEffect(() => {
     setScrollTop(window.scrollY);
 
-    // document.addEventListener("scroll", handleScroll);
+    if (animationEnabled) {
+      document.addEventListener("scroll", handleScroll);
+    }
 
     return () => {
-      // document.removeEventListener("scroll", handleScroll);
+      if (animationEnabled) {
+        document.removeEventListener("scroll", handleScroll);
+      }
     }
-  }, [])
+  }, [handleScroll, animationEnabled])
 
   return (
     <Section
@@ -157,6 +162,7 @@ export default function StartSection(): React.ReactElement {
         }}
       >
         <Image
+          onClick={() => setAnimationEnabled(p => !p)}
           alt="dental design health"
           src={svgDdh}
           style={{
