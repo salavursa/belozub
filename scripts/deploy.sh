@@ -7,7 +7,7 @@ git status
 
 #install & build
 npm install --force
-npm build
+npm run build
 
 #deploy
 pm2 stop belozub
