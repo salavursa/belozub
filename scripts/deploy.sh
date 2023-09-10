@@ -5,6 +5,7 @@
 
 #update git
 cd /var/www/belozub
+git reset --hard
 git pull
 git status
 
