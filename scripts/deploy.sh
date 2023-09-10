@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#this file obtained permission from git via
+#
+
 #update git
 cd /var/www/belozub
 git pull
