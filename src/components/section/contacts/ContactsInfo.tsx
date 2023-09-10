@@ -22,7 +22,7 @@ export default function ContactsInfo(): React.ReactElement {
         <Typography variant="h5" fontSize="20px" color={theme => theme.colors.LIGHT}>
           Телефон:
         </Typography>
-        <Link style={{ textDecoration: "none" }} href="phone:${+7 921 945-01-35}">
+        <Link style={{ textDecoration: "none" }} href="tel:+79219450135">
           <Typography sx={{ fontVariantNumeric: "lining-nums proportional-nums", fontWeight: "300" }} variant="a" color={theme => theme.colors.LIGHT} >
             +7 921 945-01-35
           </Typography>
@@ -41,7 +41,7 @@ export default function ContactsInfo(): React.ReactElement {
         <Typography variant="h5" fontSize="20px" color={theme => theme.colors.LIGHT}>
           Адрес:
         </Typography>
-        <Link style={{ textDecoration: "none" }} href="phone:${+7 921 945-01-35}">
+        <Link style={{ textDecoration: "none" }} href="https://yandex.ru/maps/org/belozub_clinic/156978678052/?ll=30.156907%2C59.851857&z=15.47">
           <Typography sx={{ fontVariantNumeric: "lining-nums proportional-nums", fontWeight: "300" }} variant="a" color={theme => theme.colors.LIGHT} >
             Ул. Катерников 7
           </Typography>
@@ -60,11 +60,9 @@ export default function ContactsInfo(): React.ReactElement {
         <Typography variant="h5" fontSize="20px" color={theme => theme.colors.LIGHT}>
           Часы работы:
         </Typography>
-        <Link style={{ textDecoration: "none" }} href="phone:${+7 921 945-01-35}">
-          <Typography sx={{ fontWeight: "300" }} variant="a" color={theme => theme.colors.LIGHT} >
-
-          </Typography>
-        </Link>
+        <Typography sx={{ fontWeight: "300" }} variant="a" color={theme => theme.colors.LIGHT} >
+          Пн-Сб 9-20
+        </Typography>
       </Box>
     </Stack>
   )
