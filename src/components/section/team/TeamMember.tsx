@@ -31,7 +31,7 @@ export default function TeamMember({
           display: "flex",
 
           "&:hover #imageBox": {
-            boxShadow: theme => theme.constants.borders.lightShadow,
+            // boxShadow: theme => theme.constants.borders.lightShadow,
           },
 
           "&:hover #info::before": {

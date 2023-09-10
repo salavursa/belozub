@@ -13,11 +13,14 @@ import ContactsSection from "@/components/section/contacts/ContactsSection";
 import ServicesSection from "@/components/section/services/ServicesSection";
 import ArticlesSection from "@/components/section/blog/ArticlesSection";
 import WriteReviewSection from "@/components/section/reviews/WriteReviewSection";
+import StartSectionV2 from "@/components/section/startv2/StartSectionV2";
 
 const Page: NextPageWithLayout = () => {
   return (
     <>
-      <StartSection />
+      {/*<StartSection />*/}
+
+      <StartSectionV2 />
 
       <AboutSection />
 

@@ -18,7 +18,7 @@ export default function InteractiveView(): React.ReactElement {
             md: "540px"
           },
           backgroundColor: "rgba(255,255,255,0.67)",
-          boxShadow: theme => theme.constants.borders.lightShadow,
+          // boxShadow: theme => theme.constants.borders.lightShadow,
           borderRadius: theme => theme.constants.borders.radiusXS
         }}
       >

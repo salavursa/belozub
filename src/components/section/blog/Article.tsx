@@ -20,7 +20,7 @@ export default function Article(): React.ReactElement {
         },
 
         backgroundColor: "rgba(255,255,255,0.67)",
-        boxShadow: theme => theme.constants.borders.lightShadow,
+        // boxShadow: theme => theme.constants.borders.lightShadow,
         borderRadius: theme => theme.constants.borders.radiusXS,
       }}
     >

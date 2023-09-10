@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback, useMemo} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import {Box, keyframes, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
 import LinkStack from "@/components/header/LinkStack";
 import NavLinkUpper from "@/components/header/NavLink";
@@ -18,8 +18,8 @@ const shouldHeaderBeShown = (alwaysShow: boolean): boolean => {
 
   if (typeof window !== "undefined") {
     return window.innerWidth < 1000
-      ? window.scrollY >= window.innerHeight * .9
-      : window.scrollY >= window.innerHeight * .4;
+      ? window.scrollY >= window.innerHeight * .5
+      : window.scrollY >= window.innerHeight * .6;
   }
 
   return false;
