@@ -145,7 +145,7 @@ export default function StartSection(): React.ReactElement {
           </Link>
           <Link style={{ textDecoration: "none" }} href="/#about">
             <Typography variant="a">
-              узнать больше о клинике
+              узнать больше о клинике ->
             </Typography>
           </Link>
         </Box>
