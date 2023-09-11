@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useRef} from "react";
+import React, {useRef} from "react";
 import Section from "@/components/section/Section";
 import {Box, Grid} from "@mui/material";
 import SectionHeader from "@/components/section/SectionHeader";
@@ -22,12 +22,13 @@ import service12 from "../../../../public/icon/services/koronki-i-viniri-service
 import Image from "next/image";
 import OutlineButton from "@/components/input/OutlineButton";
 import {gsap} from "gsap";
+import useIsomorphicLayoutEffect from "@/util/useIsomorphicLayoutEffect";
 
 export default function ServicesSection(): React.ReactElement {
   const containerRef = useRef<HTMLDivElement | null>();
   const imgRef = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (imgRef) {
       let ctx = gsap.context(() => {
         gsap.to(

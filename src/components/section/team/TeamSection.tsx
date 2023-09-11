@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useRef} from "react";
+import React, {useRef} from "react";
 import Section from "@/components/section/Section";
 import {Box, Grid, useMediaQuery, useTheme} from "@mui/material";
 import SectionHeader from "@/components/section/SectionHeader";
@@ -9,6 +9,7 @@ import member1 from "../../../../public/image/team/team-belozub.jpeg";
 import shelveImg from "../../../../public/image/shelve.png";
 import Image from "next/image";
 import {gsap} from "gsap";
+import useIsomorphicLayoutEffect from "@/util/useIsomorphicLayoutEffect";
 
 export default function TeamSection(): React.ReactElement {
   const theme = useTheme();
@@ -16,7 +17,7 @@ export default function TeamSection(): React.ReactElement {
   const containerRef = useRef<HTMLDivElement | null>();
   const imgRef = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!isMobile && imgRef) {
       let ctx = gsap.context(() => {
         gsap.to(

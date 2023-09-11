@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, {useRef} from "react";
 import Section from "@/components/section/Section";
 
 import {Box, Button, Typography, useMediaQuery, useTheme} from "@mui/material";
@@ -10,6 +10,7 @@ import svgTitle from "../../../../public/icon/brandings/svg-title.svg";
 import Link from "next/link";
 import svgDdh from "../../../../public/icon/brandings/svg-ddh-pink-logo.svg";
 import arrowDownSvg from "../../../../public/icon/arrow-down.svg";
+import useIsomorphicLayoutEffect from "@/util/useIsomorphicLayoutEffect";
 
 export default function StartSectionV2(): React.ReactElement {
   const theme = useTheme();
@@ -17,7 +18,7 @@ export default function StartSectionV2(): React.ReactElement {
   const startContainer = useRef<HTMLDivElement | null>(null);
   const smile = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
       gsap.to(
         smile.current,
