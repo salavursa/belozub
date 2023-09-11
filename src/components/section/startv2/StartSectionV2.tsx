@@ -4,14 +4,12 @@ import Section from "@/components/section/Section";
 import {Box, Button, Typography, useMediaQuery, useTheme} from "@mui/material";
 
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import imgStart from "../../../../public/image/bg-start.png";
 import Image from "next/image";
 import svgTitle from "../../../../public/icon/brandings/svg-title.svg";
 import Link from "next/link";
 import svgDdh from "../../../../public/icon/brandings/svg-ddh-pink-logo.svg";
 import arrowDownSvg from "../../../../public/icon/arrow-down.svg";
-gsap.registerPlugin(ScrollTrigger);
 
 export default function StartSectionV2(): React.ReactElement {
   const theme = useTheme();

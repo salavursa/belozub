@@ -1,9 +1,6 @@
 import {NextPageWithLayout} from "./_app";
 import React from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import {Box} from "@mui/material";
-import Section from "@/components/section/Section";
-import StartSection from "@/components/section/start/StartSection";
 import AboutSection from "@/components/section/about/AboutSection";
 import TeamSection from "@/components/section/team/TeamSection";
 import WorksSection from "@/components/section/works/WorksSection";
@@ -14,12 +11,13 @@ import ServicesSection from "@/components/section/services/ServicesSection";
 import ArticlesSection from "@/components/section/blog/ArticlesSection";
 import WriteReviewSection from "@/components/section/reviews/WriteReviewSection";
 import StartSectionV2 from "@/components/section/startv2/StartSectionV2";
+import useGsapPlugins from "@/util/useGsapPlugins";
 
 const Page: NextPageWithLayout = () => {
+  useGsapPlugins();
+
   return (
     <>
-      {/*<StartSection />*/}
-
       <StartSectionV2 />
 
       <AboutSection />
@@ -35,7 +33,7 @@ const Page: NextPageWithLayout = () => {
       <ReviewsSection />
       <WriteReviewSection />
 
-      <GalleySection />
+      {/*<GalleySection />*/}
 
       <ContactsSection />
     </>
