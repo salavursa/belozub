@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect, useRef} from "react";
 import Section from "@/components/section/Section";
 import {Box, Grid, useMediaQuery, useTheme} from "@mui/material";
 import SectionHeader from "@/components/section/SectionHeader";
@@ -8,13 +8,41 @@ import TeamMember from "@/components/section/team/TeamMember";
 import member1 from "../../../../public/image/team/team-belozub.jpeg";
 import shelveImg from "../../../../public/image/shelve.png";
 import Image from "next/image";
+import {gsap} from "gsap";
 
 export default function TeamSection(): React.ReactElement {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const containerRef = useRef<HTMLDivElement | null>();
+  const imgRef = useRef<HTMLDivElement | null>(null);
+
+  useLayoutEffect(() => {
+    if (!isMobile && imgRef) {
+      let ctx = gsap.context(() => {
+        gsap.to(
+          imgRef.current,
+          {
+            duration: 10,
+            scrollTrigger: {
+              trigger: imgRef.current,
+              toggleActions: "restart pause reverse pause",
+              scrub: 1,
+            },
+
+            scale: .7,
+            translateY: isMobile ? "-500px" : "-180px",
+            translateX: "-200px",
+          }
+        );
+      }, containerRef);
+
+      return () => ctx.revert();
+    }
+  }, [isMobile]);
 
   return (
     <Section
+      ref={containerRef}
       id="team"
       sx={{
         position: "relative",
@@ -24,17 +52,22 @@ export default function TeamSection(): React.ReactElement {
       }}
     >
       {!isMobile && (
-        <Image
-          src={shelveImg}
-          style={{
+        <Box
+          ref={imgRef}
+          sx={{
             position: "absolute",
-            left: isMobile ? "-40px" : 0,
-            top: isMobile ? "280px" : "100px",
+            transform: isMobile ? "translate(-40, 280px)" : "translate(-170px, 500px)",
             width: isMobile ? "120px" : "150px",
-            height: "auto",
           }}
-          alt="Belozub mini icon"
-        />
+        >
+          <Image
+            src={shelveImg}
+            style={{
+              height: "auto",
+            }}
+            alt="Belozub mini icon"
+          />
+        </Box>
       )}
       <SectionContainer>
         <SectionHeader text="Команда" sx={{ alignSelf: "end" }} />

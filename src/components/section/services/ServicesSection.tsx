@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect, useRef} from "react";
 import Section from "@/components/section/Section";
 import {Box, Grid} from "@mui/material";
 import SectionHeader from "@/components/section/SectionHeader";
@@ -21,16 +21,46 @@ import service11 from "../../../../public/icon/services/protezirovanie-na-implan
 import service12 from "../../../../public/icon/services/koronki-i-viniri-service.svg";
 import Image from "next/image";
 import OutlineButton from "@/components/input/OutlineButton";
+import {gsap} from "gsap";
 
 export default function ServicesSection(): React.ReactElement {
+  const containerRef = useRef<HTMLDivElement | null>();
+  const imgRef = useRef<HTMLDivElement | null>(null);
+
+  useLayoutEffect(() => {
+    if (imgRef) {
+      let ctx = gsap.context(() => {
+        gsap.to(
+          imgRef.current,
+          {
+            duration: 10,
+            scrollTrigger: {
+              trigger: imgRef.current,
+              toggleActions: "restart pause reverse pause",
+              end: "60% 80%",
+              scrub: 1,
+            },
+
+            scale: 1,
+            translateX: 0,
+            translateY: 0,
+          }
+        );
+      }, containerRef);
+
+      return () => ctx.revert();
+    }
+  }, []);
+
   return (
-    <Section id="services">
+    <Section ref={containerRef} id="services">
       <SectionContainer>
         <SectionHeader text="Виды лечения" />
         <Box flex="1 0" position="relative" >
           <Box
+            ref={imgRef}
             sx={{
-              transform: "scale(-1, 1) rotate(-15deg)",
+              transform: "translate(200px, 90px) scale(0.5)",
               position: "absolute",
               height: {
                 xl: "450px",
@@ -57,6 +87,7 @@ export default function ServicesSection(): React.ReactElement {
               height={0}
               sizes="100vw"
               style={{
+                transform: "scale(-1, 1) rotate(-15deg)",
                 height: "100%",
                 width: "auto"
               }}
