@@ -1,10 +1,10 @@
 import React from "react";
-import Link from "next/link";
 import {Button, Typography} from "@mui/material";
+import StyledLink from "@/components/elements/StyledLink";
 
 export default function NavLink({ href, text, variant = "upper" }: { href: string, text: string, variant: "upper" | "bottom" }): React.ReactElement {
   return (
-    <Link style={{ textDecoration: "none" }} href={href} scroll={false}>
+    <StyledLink href={href}>
       <Button
         sx={{
           padding: "10px",
@@ -31,6 +31,6 @@ export default function NavLink({ href, text, variant = "upper" }: { href: strin
           </Typography>
         )}
       </Button>
-    </Link>
+    </StyledLink>
   )
 }

@@ -7,7 +7,7 @@ import svgDdh from "../../../../public/icon/brandings/svg-ddh-pink-logo.svg";
 import arrowDownSvg from "../../../../public/icon/arrow-down.svg";
 import Image from "next/image";
 import {Box, Button, Typography, useMediaQuery, useTheme} from "@mui/material";
-import Link from "next/link";
+import StyledLink from "@/components/elements/StyledLink";
 
 const startClipPercentage = 60;
 
@@ -136,18 +136,18 @@ export default function StartSection(): React.ReactElement {
           Качество улыбки имеет значение, ведь нет ничего, что она не могла бы сделать лучше. Доверьтесь нам и мы поможем создать улыбку вашей мечты.
         </Typography>
         <Box display="flex" gap="20px" alignItems="center">
-          <Link style={{ textDecoration: "none" }} href="/#contacts">
+          <StyledLink href="/#contacts">
             <Button>
               <Typography variant="p2">
                 записаться на прием
               </Typography>
             </Button>
-          </Link>
-          <Link style={{ textDecoration: "none" }} href="/#about">
+          </StyledLink>
+          <StyledLink href="/#about">
             <Typography variant="a">
               узнать больше о клинике
             </Typography>
-          </Link>
+          </StyledLink>
         </Box>
       </Box>
       <Box

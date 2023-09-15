@@ -2,8 +2,8 @@ import React from "react";
 import {Box, Typography, useMediaQuery, useTheme} from "@mui/material";
 import Image from "next/image";
 import ddhIcon from "../../../../public/icon/brandings/svg-ddh-dark-logo.svg";
-import Link from "next/link";
 import ViewMoreLink from "@/components/elements/ViewMoreLink";
+import StyledLink from "@/components/elements/StyledLink";
 
 type Props = {
   src: string,
@@ -22,7 +22,7 @@ export default function TeamMember({
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
-    <Link href={"/team/"} style={{ textDecoration: "none" }}>
+    <StyledLink href="/team/">
       <Box
         sx={{
           height: "260px",
@@ -157,6 +157,6 @@ export default function TeamMember({
           />
         </Box>
       </Box>
-    </Link>
+    </StyledLink>
   )
 }

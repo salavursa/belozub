@@ -6,10 +6,10 @@ import Image from "next/image";
 import belSvg from "../../../public/icon/brandings/svg-bel-header.svg";
 import belSvgMobile from "../../../public/icon/brandings/svg-title-half-xs.svg";
 import AppointmentButton from "@/components/header/AppointmentButton";
-import Link from "next/link";
 import MobileMenuButton from "@/components/header/MobileMenuButton";
 import bgStatic from "../../../public/image/bg-static.png";
 import bgStaticDark from "../../../public/image/bg-static-dark.png";
+import StyledLink from "@/components/elements/StyledLink";
 
 const shouldHeaderBeShown = (alwaysShow: boolean): boolean => {
   if (alwaysShow) {
@@ -166,7 +166,7 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
                 overflow: "hidden"
               }}
             >
-              <Link href="/#main" style={{ textDecoration: "none" }} scroll={false}>
+              <StyledLink href="/#main">
                 <Box sx={{ animation: `${rotate} 20s linear infinite` }}>
                   <Image
                     src={belSvgMobile}
@@ -177,7 +177,7 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
                     alt="Belozub mini icon"
                   />
                 </Box>
-              </Link>
+              </StyledLink>
             </Box>
           ) : (
             <>
@@ -188,7 +188,7 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
                   zIndex: 1
                 }}
               >
-                <Link onClick={() => setMenuOpen(false)} href="/#main" style={{ textDecoration: "none" }} scroll={false}>
+                <StyledLink onClick={() => setMenuOpen(false)} href="/#main">
                   <Image
                     src={belSvg}
                     style={{
@@ -198,7 +198,7 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
                     }}
                     alt="Belozub mini icon"
                   />
-                </Link>
+                </StyledLink>
               </Box>
               <AppointmentButton />
             </>

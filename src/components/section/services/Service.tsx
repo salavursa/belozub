@@ -1,8 +1,8 @@
 import React from "react";
 import {Box, Grid, Stack, Typography} from "@mui/material";
-import Link from "next/link";
 import Image from "next/image";
 import ViewMoreLink from "@/components/elements/ViewMoreLink";
+import StyledLink from "@/components/elements/StyledLink";
 
 type Props = {
   src: string,
@@ -14,7 +14,7 @@ type Props = {
 export default function Service({ href, title, src, description }: Props): React.ReactElement {
   return (
     <Grid item xs={12} sm={6} md={6} lg={4} xl={3}>
-      <Link href={href} style={{ textDecoration: "none" }}>
+      <StyledLink href={href}>
         <Box
           sx={{
             padding: {
@@ -109,7 +109,7 @@ export default function Service({ href, title, src, description }: Props): React
             </Stack>
           </Stack>
         </Box>
-      </Link>
+      </StyledLink>
     </Grid>
   );
 }

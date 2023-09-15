@@ -7,10 +7,10 @@ import { gsap } from "gsap";
 import imgStart from "../../../../public/image/bg-start.png";
 import Image from "next/image";
 import svgTitle from "../../../../public/icon/brandings/svg-title.svg";
-import Link from "next/link";
 import svgDdh from "../../../../public/icon/brandings/svg-ddh-pink-logo.svg";
 import arrowDownSvg from "../../../../public/icon/arrow-down.svg";
 import useIsomorphicLayoutEffect from "@/util/useIsomorphicLayoutEffect";
+import StyledLink from "@/components/elements/StyledLink";
 
 export default function StartSectionV2(): React.ReactElement {
   const theme = useTheme();
@@ -143,18 +143,18 @@ export default function StartSectionV2(): React.ReactElement {
               Качество улыбки имеет значение, ведь нет ничего, что она не могла бы сделать лучше. Доверьтесь нам и мы поможем создать улыбку вашей мечты.
             </Typography>
             <Box display="flex" gap="20px" alignItems="center">
-              <Link style={{ textDecoration: "none" }} href="/#contacts">
+              <StyledLink href="/#contacts">
                 <Button>
                   <Typography variant="p2">
                     записаться на прием
                   </Typography>
                 </Button>
-              </Link>
-              <Link style={{ textDecoration: "none" }} href="/#about">
+              </StyledLink>
+              <StyledLink href="/#about">
                 <Typography variant="a">
                   узнать больше о клинике
                 </Typography>
-              </Link>
+              </StyledLink>
             </Box>
           </Box>
 

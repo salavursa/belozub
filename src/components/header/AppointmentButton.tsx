@@ -1,10 +1,10 @@
 import React from "react";
 import {Button, Typography} from "@mui/material";
-import Link from "next/link";
+import StyledLink from "@/components/elements/StyledLink";
 
 export default function AppointmentButton(): React.ReactElement {
   return (
-    <Link href="/#contacts" style={{ textDecoration: "none" }} scroll={false}>
+    <StyledLink href="/#contacts">
       <Button
         sx={{
           padding: "10px 30px 10px 45px",
@@ -25,6 +25,6 @@ export default function AppointmentButton(): React.ReactElement {
           Записаться
         </Typography>
       </Button>
-    </Link>
+    </StyledLink>
   )
 }
