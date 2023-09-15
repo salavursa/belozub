@@ -10,7 +10,7 @@ git pull
 git status
 
 #install & build
-npm install --force
+npm install
 npm run build
 
 #deploy
