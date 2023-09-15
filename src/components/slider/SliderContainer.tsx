@@ -5,7 +5,7 @@ import {Theme} from "@mui/material/styles";
 export type Props = {
   sx?: SxProps<Theme>,
   gap?: number,
-  children?: ReactElement[]
+  children?: any
 };
 
 export type SliderInterface = {

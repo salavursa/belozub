@@ -212,9 +212,6 @@ const theme = createTheme({
       [intermediateTheme.breakpoints.down("sm")]: {
         textUnderlineOffset: "2px",
       },
-      "&:hover": {
-        color: COLORS.PINK,
-      }
     }
   },
   components: {
