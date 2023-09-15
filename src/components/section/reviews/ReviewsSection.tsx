@@ -35,23 +35,27 @@ export default function ReviewsSection(): React.ReactElement {
           }}
         />
 
-        <SliderContainer sx={{ height: "170px" }} ref={sliderRef}>
-          <Review />
-          <Review />
-          <Review />
-          <Review />
-          <Review />
-          <Review />
-          <Review />
-          <Review />
-          <Review
-            sx={{
-              mr: {
-                xs: "25px",
-                sm: "30px"
-              }
-            }}
-          />
+        <SliderContainer
+          gap={30}
+          ref={sliderRef}
+          sx={{
+            scrollPaddingLeft: "30px",
+            "& > div:first-child": {
+              ml: "30px",
+            },
+            "& > div:last-child": {
+              mr: "30px",
+            },
+          }}
+        >
+          <Review gap={30} />
+          <Review gap={30} />
+          <Review gap={30} />
+          <Review gap={30} />
+          <Review gap={30} />
+          <Review gap={30} />
+          <Review gap={30} />
+          <Review gap={30} />
         </SliderContainer>
 
         <Box display="flex" mt="25px" alignItems="center" justifyContent="center" gap={{ xs: "25px", sm: "30px" }} >

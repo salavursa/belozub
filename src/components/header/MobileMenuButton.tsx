@@ -13,8 +13,8 @@ export default function MobileMenuButton({ toggled, toggle }: { toggled: boolean
         overflow: "hidden",
         width: "60px",
         height: "60px",
-        // backgroundColor: theme => theme.colors.GRAY,
-        transition: theme => theme.constants.transitions.default,
+        transitionProperty: "backgroundColor",
+        transitionDuration: theme => theme.constants.transitions.duration,
         border: "none",
         borderRadius: 0,
         textTransform: "unset",
@@ -38,8 +38,9 @@ export default function MobileMenuButton({ toggled, toggle }: { toggled: boolean
       >
         <Image
           src={smileSvgActiveLeft}
+          priority
           style={{
-            transition: ".3s all",
+            transition: "transform .3s",
             width: "25px",
             height: "50px",
             transform: toggled ? "translateX(20.5px)" : "translateX(0px)"
@@ -48,8 +49,9 @@ export default function MobileMenuButton({ toggled, toggle }: { toggled: boolean
         />
         <Image
           src={smileSvg}
+          priority
           style={{
-            transition: ".1s all",
+            transition: "opacity .1s",
             width: "55px",
             height: "50px",
             opacity: toggled ? 0 : 1,
@@ -58,8 +60,9 @@ export default function MobileMenuButton({ toggled, toggle }: { toggled: boolean
         />
         <Image
           src={smileSvgActiveRight}
+          priority
           style={{
-            transition: ".3s all",
+            transition: "transform .3s",
             width: "25px",
             height: "50px",
             transform: toggled ? "translateX(-20.5px)" : "translateX(0px)"

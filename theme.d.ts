@@ -18,6 +18,7 @@ interface Colors {
 interface Constants {
   transitions: {
     default: React.CSSProperties["transition"];
+    duration: React.CSSProperties["transitionDuration"];
   },
   borders: {
     lightShadow: React.CSSProperties["boxShadow"];

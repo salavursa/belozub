@@ -30,10 +30,6 @@ export default function TeamMember({
           flex: isMobile ? "1 0" : "0 0",
           display: "flex",
 
-          "&:hover #imageBox": {
-            // boxShadow: theme => theme.constants.borders.lightShadow,
-          },
-
           "&:hover #info::before": {
             opacity: 0
           },
@@ -57,9 +53,7 @@ export default function TeamMember({
           }}
         >
           <Box
-            id="imageBox"
             sx={{
-              transition: theme => theme.constants.transitions.default,
               width: "100%",
               height: "100%",
               display: "flex",
@@ -92,7 +86,6 @@ export default function TeamMember({
             height: "100%",
             flex: "1 0",
             padding: "0 8px 0 18px",
-            transition: theme => theme.constants.transitions.default,
             borderRadius: "0px 7px 7px 0px",
             border: ".7px solid",
             borderColor: theme => theme.colors.GRAY,
@@ -100,7 +93,8 @@ export default function TeamMember({
             zIndex: -1,
             "&:before": {
               zIndex: -3,
-              transition: theme => theme.constants.transitions.default,
+              transitionProperty: "opacity",
+              transitionDuration: theme => theme.constants.transitions.duration,
               borderRadius: "0px 7px 7px 0px",
               opacity: 1,
               position: "absolute",
@@ -113,7 +107,8 @@ export default function TeamMember({
             },
             "&:after": {
               zIndex: -2,
-              transition: theme => theme.constants.transitions.default,
+              transitionProperty: "opacity",
+              transitionDuration: theme => theme.constants.transitions.duration,
               borderRadius: "0px 7px 7px 0px",
               opacity: 0,
               position: "absolute",

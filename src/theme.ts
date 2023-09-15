@@ -13,7 +13,8 @@ const COLORS = {
 
 const CONSTANTS = {
   transitions: {
-    default: ".3s all"
+    default: "none",
+    duration: ".3s"
   },
   sizes: {
     button: {
@@ -205,14 +206,15 @@ const theme = createTheme({
     a: {
       textUnderlineOffset: "5px",
       textDecoration: "underline",
-      transition: CONSTANTS.transitions.default,
+      transitionProperty: "color",
+      transitionDuration: CONSTANTS.transitions.duration,
       color: COLORS.LIGHT,
       [intermediateTheme.breakpoints.down("sm")]: {
         textUnderlineOffset: "2px",
       },
-      // "&:hover": {
-      //   color: COLORS.PINK,
-      // }
+      "&:hover": {
+        color: COLORS.PINK,
+      }
     }
   },
   components: {
@@ -229,7 +231,7 @@ const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         input: {
-          transition: CONSTANTS.transitions.default,
+          transitionDuration: CONSTANTS.transitions.duration,
           height: "17px",
           padding: "16.5px 14px",
           "& textarea": {
@@ -254,7 +256,7 @@ const theme = createTheme({
         root: {
           border: "1px solid",
           borderRadius: "1rem",
-          transition: CONSTANTS.transitions.default,
+          transition: "all .3s",
           height: CONSTANTS.sizes.button.height,
           borderColor: COLORS.PINK,
           backgroundColor: COLORS.PINK,
@@ -270,7 +272,8 @@ const theme = createTheme({
           },
           "& img": {
             color: COLORS.DARK2,
-            transition: CONSTANTS.transitions.default,
+            transitionProperty: "color",
+            transitionDuration: CONSTANTS.transitions.duration,
           },
           "&:disabled": {
             color: COLORS.DARK,

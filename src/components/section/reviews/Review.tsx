@@ -1,20 +1,47 @@
 import {Box, Stack, SxProps, Typography} from "@mui/material";
 import React from "react";
-import {Theme} from "@mui/material/styles";
 import backgroundImage from "../../../../public/image/review-bg.png";
 import Image from "next/image";
-import circularSlogan from "../../../../public/image/about/circular-text.png";
 import SlideObject from "@/components/slider/SlideObject";
+import ScrollBox from "@/components/elements/ScrollBox";
 
-export default function Review({ sx = {} }: { sx?: SxProps<Theme> }) {
+export default function Review({ gap }: { gap: number }) {
   return (
     <SlideObject
+      gap={gap}
+      items={{
+        xs: 1,
+        sm: 2,
+        md: 3,
+        lg: 4,
+        xl: 4
+      }}
+      gaps={{
+        xs: 0,
+        sm: 0,
+        md: 0,
+        lg: 0,
+        xl: 0
+      }}
       sx={{
         display: "flex",
         height: "170px",
         borderRadius: theme => theme.constants.borders.radiusXS,
         overflow: "hidden",
-        ...sx
+        minWidth: {
+          xs: `calc((100vw - ${2 * gap}px) / ${1})`,
+          sm: `calc((100vw - ${3 * gap}px) / ${2})`,
+          md: `calc((100vw - ${3 * gap}px) / ${2})`,
+          lg: `calc((100vw - ${4 * gap}px) / ${3})`,
+          xl: `calc((100vw - ${5 * gap}px) / ${4})`,
+        },
+        // minWidth: {
+        //   xs: `calc((100vw - ${(1 - 1 + 2) * gap + 0}px) / ${1})`,
+        //   sm: `calc((100vw - ${(2 - 1 + 2) * gap + 0}px) / ${2})`,
+        //   md: `calc((100vw - ${(2 - 1 + 2) * gap + 0}px) / ${2})`,
+        //   lg: `calc((100vw - ${(3 - 1 + 2) * gap + 0}px) / ${3})`,
+        //   xl: `calc((100vw - ${(4 - 1 + 2) * gap + 0}px) / ${4})`,
+        // },
       }}
     >
       <Box
@@ -42,9 +69,11 @@ export default function Review({ sx = {} }: { sx?: SxProps<Theme> }) {
             Лучшая клиника
           </Typography>
         </Box>
-        <Typography variant="p4" textAlign="center" sx={{ flex: "1 0", color: theme => theme.colors.LIGHT, padding: "7px 19px 19px 19px", maxHeight: "87px", overflowY: "auto" }}>
-          Прием прошел отлично! Врач замечательный! Очень приятный! Проконсультировал и объяснил информацию. Клинику выбрала случайно. Она милая и приятная. Обслужили меня быстро. По итогу денситометрии я получила результат обследования.
-        </Typography>
+        <ScrollBox sx={{ flex: "1 0", padding: "7px 19px 19px 19px", lineHeight: "0px", textAlign: "center" }}>
+          <Typography variant="p4" color={theme => theme.colors.LIGHT}>
+            Прием прошел отлично! Врач замечательный! Очень приятный! Проконсультировал и объяснил информацию. Клинику выбрала случайно. Она милая и приятная. Обслужили меня быстро. По итогу денситометрии я получила результат обследования.
+          </Typography>
+        </ScrollBox>
         <Box
           sx={{
             backgroundColor: theme => theme.colors.PINK,

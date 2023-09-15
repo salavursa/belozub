@@ -33,7 +33,7 @@ const Page: NextPageWithLayout = () => {
       <ReviewsSection />
       <WriteReviewSection />
 
-      <GalleySection />
+      {/*<GalleySection />*/}
 
       <ContactsSection />
     </>

@@ -75,7 +75,8 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
   return (
     <Box
       sx={{
-        transition: theme => theme.constants.transitions.default,
+        transitionProperty: "opacity",
+        transitionDuration: theme => theme.constants.transitions.duration,
         opacity: showHeader ? 1 : 0,
         pointerEvents: showHeader ? "auto" : "none",
         width: "100dvw",
@@ -184,8 +185,7 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
                 sx={{
                   height: "60px",
                   width: "75px",
-                  zIndex: 1,
-                  transition: theme => theme.constants.transitions.default,
+                  zIndex: 1
                 }}
               >
                 <Link onClick={() => setMenuOpen(false)} href="/#main" style={{ textDecoration: "none" }} scroll={false}>
@@ -216,7 +216,8 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
             position: "absolute",
             top: "100px",
             left: 0,
-            transition: ".3s all",
+            transitionProperty: "opacity",
+            transitionDuration: theme => theme.constants.transitions.duration,
             width: "100%",
             height: "calc(100dvh - 99px)",
             opacity: isMenuOpen ? 1 : 0,
@@ -237,9 +238,7 @@ export default function Header({ alwaysOn = false, layout }: { alwaysOn?: boolea
                 : `linear-gradient(0deg, rgba(56, 56, 58, 0.80) 0%, rgba(56, 56, 58, 0.80) 100%), url(${bgStaticDark.src}), lightgray 50% / cover no-repeat`,
             }
           }}
-        >
-          n
-        </Box>
+        />
       )}
     </Box>
   )

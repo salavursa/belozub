@@ -10,8 +10,8 @@ const Page: NextPageWithLayout = () => {
 
   return (
     <>
-      <StartSectionV2 />
-      <Box width="100%" height="200vh" ></Box>
+      {/*<StartSectionV2 />*/}
+      <Box width="100%" height="500vh" ></Box>
     </>
   )
 }

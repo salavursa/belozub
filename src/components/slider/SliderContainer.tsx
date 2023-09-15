@@ -4,6 +4,7 @@ import {Theme} from "@mui/material/styles";
 
 export type Props = {
   sx?: SxProps<Theme>,
+  gap?: number,
   children?: ReactElement[]
 };
 
@@ -12,7 +13,7 @@ export type SliderInterface = {
   slideRight: () => void;
 };
 
-const SliderContainer = forwardRef<SliderInterface, Props>(({ children = [], sx = {} }, ref) => {
+const SliderContainer = forwardRef<SliderInterface, Props>(({ gap = 0, children = [], sx = {} }, ref) => {
   const containerRef = useRef<HTMLDivElement>();
 
   useImperativeHandle(ref, () => ({
@@ -43,12 +44,9 @@ const SliderContainer = forwardRef<SliderInterface, Props>(({ children = [], sx 
         alignItems: "center",
         display: "flex",
         width: "100%",
+        gap: `${gap}px`,
         overflowX: "scroll",
         scrollSnapType: "x mandatory",
-        scrollPaddingLeft: {
-          xs: "25px",
-          sm: "30px"
-        },
         "&::-webkit-scrollbar": {
           display: "none"
         },

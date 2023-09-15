@@ -9,7 +9,8 @@ export default function AppointmentButton(): React.ReactElement {
         sx={{
           padding: "10px 30px 10px 45px",
           backgroundColor: theme => theme.colors.GRAY,
-          transition: theme => theme.constants.transitions.default,
+          transitionProperty: "backgroundColor",
+          transitionDuration: theme => theme.constants.transitions.duration,
           border: "none",
           borderRadius: 0,
           height: "60px",

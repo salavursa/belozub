@@ -24,7 +24,6 @@ export default function Service({ href, title, src, description }: Props): React
             position: "relative",
             width: "100%",
             height: "210px",
-            transition: theme => theme.constants.transitions.default,
             zIndex: 0,
 
             borderRadius: theme => theme.constants.borders.radiusXS,
@@ -40,7 +39,8 @@ export default function Service({ href, title, src, description }: Props): React
 
             "&:before": {
               zIndex: -3,
-              transition: theme => theme.constants.transitions.default,
+              transitionProperty: "opacity",
+              transitionDuration: theme => theme.constants.transitions.duration,
               opacity: 1,
               position: "absolute",
               content: "''",
@@ -58,7 +58,8 @@ export default function Service({ href, title, src, description }: Props): React
             },
             "&:after": {
               zIndex: -2,
-              transition: theme => theme.constants.transitions.default,
+              transitionProperty: "opacity",
+              transitionDuration: theme => theme.constants.transitions.duration,
               opacity: 0,
               position: "absolute",
               content: "''",

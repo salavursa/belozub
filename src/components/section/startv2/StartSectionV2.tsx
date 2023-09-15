@@ -32,7 +32,7 @@ export default function StartSectionV2(): React.ReactElement {
             // markers: true
           },
 
-          translateY: isMobile ? "-500px" : "-280px",
+          translateY: isMobile ? "-250px" : "-280px",
           borderBottomLeftRadius: "50% 1%",
           borderBottomRightRadius: "50% 1%",
         }
@@ -74,11 +74,11 @@ export default function StartSectionV2(): React.ReactElement {
             padding: "0 5vw",
             borderBottomLeftRadius: {
               xs: "50% 22%",
-              md: "50% 51%",
+              md: "50% 57%",
             },
             borderBottomRightRadius: {
               xs: "50% 22%",
-              md: "50% 51%",
+              md: "50% 57%",
             },
             overflow: "hidden",
             borderBottom: theme => `6px solid ${theme.colors.PINK}`

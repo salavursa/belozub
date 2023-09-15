@@ -11,7 +11,7 @@ export default function WorksSection(): React.ReactElement {
   return (
     <Section id="works">
       <SectionContainer>
-        <SectionHeader text="Работы" />
+        <SectionHeader text="Результаты нашей работы" />
       </SectionContainer>
     </Section>
   );

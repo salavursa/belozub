@@ -8,7 +8,8 @@ export default function NavLink({ href, text, variant = "upper" }: { href: strin
       <Button
         sx={{
           padding: "10px",
-          transition: theme => theme.constants.transitions.default,
+          transitionProperty: "backgroundColor",
+          transitionDuration: theme => theme.constants.transitions.duration,
           backgroundColor: "transparent",
           border: "none",
           borderRadius: 0,
